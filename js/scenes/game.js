@@ -42,7 +42,8 @@ class GameScene extends Phaser.Scene {
 
 		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
 		var options_data = JSON.parse(json);
-		var cartas = arraycards.slice(options_data*2);
+		var cartas = options_data.num_cards;
+		var vector_cartas = arraycards.slice(0,) ;
 		
 		
 		let i = 0;
