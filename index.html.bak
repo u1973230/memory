@@ -13,16 +13,16 @@
 			Phaser Game 
 		</button>
 		<button class="menu-object" onclick="start_game()"> 
-			Puntuacions 
+			Start Game 
 		</button>
 		<button class="menu-object" onclick="load()"> 
-			Carregar 
+			Load Game 
 		</button>
 		<button class="menu-object" onclick="options()"> 
-			Opcions 
+			Options 
 		</button>
 		<button class="menu-object" onclick="exit()"> 
-			Sortir 
+			Exit 
 		</button>
 	</body>
 </html>
