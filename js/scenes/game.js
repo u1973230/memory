@@ -41,7 +41,13 @@ class GameScene extends Phaser.Scene {
 		this.cards.create(450, 300, 'back');
 		this.cards.create(550, 300, 'back');
 		
+		for(int k = 0,  i < cards , k++){
 
+			this.add.image(250, 300, arraycards[vector_cartas]);
+
+
+
+		}
 		
 		
 		
