@@ -20,7 +20,7 @@ class GameScene extends Phaser.Scene {
     create (){	
 		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
 		options_data = JSON.parse(json);
-		let arraycards = ['co', 'sb', 'co', 'sb'];
+		let arraycards = ['co','co','cb','cb','sb','sb','so','so','tb','tb','to','to'];
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
 		this.add.image(250, 300, arraycards[0]);
@@ -28,7 +28,9 @@ class GameScene extends Phaser.Scene {
 		this.add.image(450, 300, arraycards[2]);
 		this.add.image(550, 300, arraycards[3]);
 		
+		
 		this.cards = this.physics.add.staticGroup();
+		
 		
 		this.cards.create(250, 300, 'back');
 		this.cards.create(350, 300, 'back');
