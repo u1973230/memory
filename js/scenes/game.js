@@ -18,6 +18,8 @@ class GameScene extends Phaser.Scene {
 	}
 	
     create (){	
+		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
+		options_data = JSON.parse(json);
 		let arraycards = ['co', 'sb', 'co', 'sb'];
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		

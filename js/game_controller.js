@@ -10,7 +10,7 @@ var options = function(){
 	var save = function(){
 		localStorage.setItem("config", JSON.stringify(options_data));
 	};
-load();
+	load();
 var gameObj = function (){
 	const back = "../resources/back.png";
 	const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",
@@ -128,9 +128,3 @@ var gameObj = function (){
 	});
 	return {};
 }();
-
-
-
-
-
-
