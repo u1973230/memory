@@ -32,6 +32,7 @@ class GameScene extends Phaser.Scene {
 			this.add.image(125*k+50,300,cartasvector[k]);
 			this.cards = this.physics.add.staticGroup();
 			this.cards.create(125*k+50,300,'back');
+			
 		}
 		
 		//this.add.image(250, 300, arraycards[0]);
