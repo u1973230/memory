@@ -26,14 +26,25 @@ class GameScene extends Phaser.Scene {
 		var cartas = options_data.cards*2;
 		let cartasvector = arraycards.slice(0,cartas);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
-
+		
+		this.cards = this.physics.add.staticGroup();
+		
+	
+		cartasvector.sort((a, b) => 0.5 - Math.random());
+    	
+    
+		
 		for(var k = 0; k < cartas; k++){
 
 			this.add.image(125*k+50,300,cartasvector[k]);
-			this.cards = this.physics.add.staticGroup();
 			this.cards.create(125*k+50,300,'back');
 			
+			
 		}
+		
+		
+	
+		
 		
 		//this.add.image(250, 300, arraycards[0]);
 		//this.add.image(350, 300, arraycards[1]);
@@ -42,7 +53,7 @@ class GameScene extends Phaser.Scene {
 		
 
 
-		//this.cards = this.physics.add.staticGroup();
+		
 		
 		
 		//this.cards.create(250, 300, 'back');
@@ -58,9 +69,13 @@ class GameScene extends Phaser.Scene {
 			card.on('pointerup', () => {
 				card.disableBody(true,true);
 				if (this.firstClick){
+					var posicion_1Carta=this.arraycards[i]
 					if (this.firstClick.card_id !== card.card_id){
+						var posicion_2Carta=this.card.arraycards[i]
+						
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
+						
 						card.enableBody(false, 0, 0, true, true);
 						if (this.score <= 0){
 							alert("Game Over");
