@@ -47,6 +47,10 @@ body{
 	min-height: 60vh;
 	
 }
+canvas {
+    display: block;
+    margin: auto;
+}
 
 
 button.menu-object:active{
