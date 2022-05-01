@@ -9,6 +9,9 @@ function start_game(){
 function phaser_game(){
 	loadpage("./html/phasergame.html");
 }
+function puntuaciones(){
+	loadpage("./html/puntuacions.html");
+}
 
 function exit (){
 	if (name != ""){

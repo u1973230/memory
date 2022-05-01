@@ -1,6 +1,7 @@
-class GameScene extends Phaser.Scene {
+class GameScene2 extends Phaser.Scene {
+
     constructor (){
-        super('GameScene');
+        super('GameScene2');
 		this.cards = null;
 		this.firstClick = null;
 		this.score = 100;
@@ -60,7 +61,7 @@ class GameScene extends Phaser.Scene {
 		//this.cards.create(350, 300, 'back');
 		//this.cards.create(450, 300, 'back');
 		//this.cards.create(550, 300, 'back');
-		var p = 0;
+	
 		let i = 0;
 		this.cards.children.iterate((card)=>{
 			card.card_id = cartasvector[i];
@@ -100,7 +101,9 @@ class GameScene extends Phaser.Scene {
 						if (this.correct >= 2){
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
-							p = this.score
+                            
+
+                            
 						}
 					}
 					this.firstClick = null;
@@ -112,6 +115,8 @@ class GameScene extends Phaser.Scene {
 		});
 	}
 	
-	update (){	}
-}
+	update (){	
 
+       
+    }
+}

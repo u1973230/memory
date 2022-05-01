@@ -9,6 +9,7 @@ input[type=number]{
 #title{
 	font-size: 26px;
 	line-height: 75px;
+	color : white;
 }
 
 .menu-object{
@@ -23,12 +24,15 @@ input[type=number]{
 
 p{
 	text-align: center;
+	font-size: 20 px;
+	
 }
 
 button.menu-object:active{
 	font-size: 18px;
 	width: 275px;
 	height: 70px;
+	
 }
 
 button.menu-object:hover:not(:active){
@@ -36,4 +40,20 @@ button.menu-object:hover:not(:active){
 	width: 325px;
 	height: 85px;
 }
+body{
+	background-color : blue;
+	display: grid; 
+	grid-gap : 1 em;
+	min-height: 60vh;
+	
+}
+
+
+button.menu-object:active{
+	font-size: 18px;
+	width: 275px;
+	height: 70px;
+}
+
+
 
