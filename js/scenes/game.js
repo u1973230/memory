@@ -25,7 +25,7 @@ class GameScene extends Phaser.Scene {
 		var options_data = JSON.parse(json);
 		var cartas = options_data.cards*2;
 		let cartasvector = arraycards.slice(0,cartas);
-		this.cameras.main.setBackgroundColor(0xBFFCFF);
+		this.cameras.main.setBackgroundColor(0xF5470F);
 		
 		this.cards = this.physics.add.staticGroup();
 		
@@ -97,7 +97,7 @@ class GameScene extends Phaser.Scene {
 					}
 					else{
 						this.correct++;
-						if (this.correct >= 2){
+						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
 							p = this.score
