@@ -59,8 +59,8 @@ class GameScene extends Phaser.Scene {
 			this.add.image(125*k+50,300,cartasvector[k]);
 			this.cards.create(125*k+50,300,'back');
 		}
+		
 		let i = 0;
-	
 		this.cards.children.iterate((card)=>{
 			card.card_id = cartasvector[i];
 			i++;
