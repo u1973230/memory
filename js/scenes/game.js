@@ -16,6 +16,7 @@ class GameScene extends Phaser.Scene {
 		this.load.image('tb', '../resources/tb.png');
 		this.load.image('to', '../resources/to.png');
 	}
+
 	
     create (){	
 		
@@ -24,9 +25,29 @@ class GameScene extends Phaser.Scene {
 		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
 		var options_data = JSON.parse(json);
 		var cartas = options_data.cards*2;
+		var dif = options_data.dificulty;
 		let cartasvector = arraycards.slice(0,cartas);
 		this.cameras.main.setBackgroundColor(0xF5470F);
 		
+		var tiempo_restante = null;
+		var punt_perdida = null;
+
+		if(dif == "hard"){
+			tiempo_restante = 1000;
+			punt_perdida = 20;
+
+		}
+		else if(dif == "normal"){
+			tiempo_restante = 1500;
+			punt_perdida = 15;
+
+		}
+		else{
+			tiempo_restante = 2000;
+			punt_perdida = 10;
+
+		}
+
 		this.cards = this.physics.add.staticGroup();
 		
 	
@@ -38,61 +59,41 @@ class GameScene extends Phaser.Scene {
 			this.add.image(125*k+50,300,cartasvector[k]);
 			this.cards.create(125*k+50,300,'back');
 		}
-		
-	
-	
-		
-		
-		//this.add.image(250, 300, arraycards[0]);
-		//this.add.image(350, 300, arraycards[1]);
-		//this.add.image(450, 300, arraycards[2]);
-		//this.add.image(550, 300, arraycards[3]);
-		
-
-		
-		
-		
-		
-		//this.cards.create(250, 300, 'back');
-		//this.cards.create(350, 300, 'back');
-		//this.cards.create(450, 300, 'back');
-		//this.cards.create(550, 300, 'back');
-		this.data.set('nombre', this.username);
-		arrayjugadores = this.score;
-		var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#020202' });
-		text.setText([
-			'Score: ' + this.data.get('score')
-		]);
-		
 		let i = 0;
-		let arrayjugadores = []
+	
 		this.cards.children.iterate((card)=>{
 			card.card_id = cartasvector[i];
 			i++;
 			card.setInteractive();
 			card.on('pointerup', () => {
 				card.disableBody(true,true);
+				
 				if (this.firstClick){
 					
 					if (this.firstClick.card_id !== card.card_id){
-						for(var k = 0; k < cartas; k++){
-							this.add.image(125*k+50,300,cartasvector[k]);
-						}
 						
-						this.score -= 20;
+						
+						this.score -= punt_perdida;
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						
 						card.enableBody(false, 0, 0, true, true);
+						//Cartas error
+						var fallo = [];
+						var cont = 0;
+						for(let j = 0; j < cartas*2; j++){
+							let cartas_error = this.add.image(125*j+50,300,cartasvector[cont]);
 						
-						this.cards.children.each(function(card) {                                
-							card.disableBody(true,true);                         
-						}, this);
-						
-						
-						this.cards.children.each(function(card) {
-                            card.enableBody(false, 0,0, true, true);
-                    	}, this);
-						
+							fallo.push(cartas_error);
+							cont++;
+							
+							
+						}
+						setTimeout(() =>{
+							for (let i = 0; i < cartas*2; i++){
+								fallo[i].destroy();
+							}
+						},tiempo_restante);
+				
 						
 						
 						
@@ -107,7 +108,7 @@ class GameScene extends Phaser.Scene {
 							alert("You Win with " + this.score + " points.");
 							
 							this.data.set('score', this.score);
-							arrayjugadores = this.score;
+							
 							var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#020202' });
 							text.setText([
 								'Score: ' + this.data.get('score')
@@ -129,6 +130,9 @@ class GameScene extends Phaser.Scene {
 		 
 	}
 	
-	update (){	}
+	update (){
+
+
+		}
 }
 
