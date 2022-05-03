@@ -39,13 +39,7 @@ class GameScene extends Phaser.Scene {
 			this.cards.create(125*k+50,300,'back');
 		}
 		
-		var mostrar_cartas = function(){
-			this.cards.children.each(function(card) {
-				card.enableBody(false, 0,0, true, true);
-			}, this);
-			
-
-		}
+	
 	
 		
 		
@@ -63,7 +57,7 @@ class GameScene extends Phaser.Scene {
 		//this.cards.create(350, 300, 'back');
 		//this.cards.create(450, 300, 'back');
 		//this.cards.create(550, 300, 'back');
-		var equivocado = false;
+		
 		
 		let i = 0;
 		let arrayjugadores = []
@@ -76,20 +70,18 @@ class GameScene extends Phaser.Scene {
 				if (this.firstClick){
 					
 					if (this.firstClick.card_id !== card.card_id){
-						
-						equivocado = true
-						if(equivocado){
-							 setTimeout(mostrar_cartas(),1000)
-							
+						for(var k = 0; k < cartas; k++){
+							this.add.image(125*k+50,300,cartasvector[k]);
 						}
+						
 						this.score -= 20;
-						//this.firstClick.enableBody(false, 0, 0, true, true);
+						this.firstClick.enableBody(false, 0, 0, true, true);
 						
 						card.enableBody(false, 0, 0, true, true);
 						
-						//this.cards.children.each(function(card) {                                
-							//card.disableBody(true,true);                         
-						//}, this);
+						this.cards.children.each(function(card) {                                
+							card.disableBody(true,true);                         
+						}, this);
 						
 						
 						this.cards.children.each(function(card) {
