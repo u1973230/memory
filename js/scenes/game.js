@@ -60,7 +60,7 @@ class GameScene extends Phaser.Scene {
 		//this.cards.create(350, 300, 'back');
 		//this.cards.create(450, 300, 'back');
 		//this.cards.create(550, 300, 'back');
-		var p = 0;
+		equivocado = false;
 		let i = 0;
 		let arrayjugadores = []
 		this.cards.children.iterate((card)=>{
@@ -73,12 +73,15 @@ class GameScene extends Phaser.Scene {
 					
 					if (this.firstClick.card_id !== card.card_id){
 						
-						for(var k = 0; k < cartas; k++){
-
-							this.add.image(125*k+50,300,cartasvector[k]);
-							
+						equivocado = true
+						if(equivocado){
+							setTimeout(this.cards.children.each(function(card) {                                
+								card.disableBody(false,false);                         
+							}, this),1000)
 							
 						}
+						
+						
 						
 						
 						
