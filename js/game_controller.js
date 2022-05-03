@@ -11,6 +11,13 @@ var options = function(){
 		localStorage.setItem("config", JSON.stringify(options_data));
 	};
 	load();
+	function ocultar_cartes() {
+		for (var i = 0; i < game.items.length; i++){
+			game.current_card[i].texture=back;
+			game.current_card[i].done=false;
+		}
+	}
+}
 var gameObj = function (){
 	const back = "../resources/back.png";
 	const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",

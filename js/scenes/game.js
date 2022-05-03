@@ -52,7 +52,7 @@ class GameScene extends Phaser.Scene {
 		//this.add.image(550, 300, arraycards[3]);
 		
 
-
+		
 		
 		
 		
@@ -69,8 +69,20 @@ class GameScene extends Phaser.Scene {
 			card.on('pointerup', () => {
 				card.disableBody(true,true);
 				if (this.firstClick){
-				
+					
 					if (this.firstClick.card_id !== card.card_id){
+						
+						for(var k = 0; k < cartas; k++){
+
+							this.add.image(125*k+50,300,cartasvector[k]);
+							
+							
+						}
+						
+						
+						
+						
+						
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						
