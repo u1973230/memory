@@ -101,7 +101,8 @@ var gameObj = function (){
 					current_card: this.current_card,
 					items: this.items,
 					num_cards: this.num_cards,
-					bad_clicks: this.bad_clicks
+					bad_clicks: this.bad_clicks,
+					puntuacion : this.score
 				}
 				let arrayPartides = [];
 				if(localStorage.partides){

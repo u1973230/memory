@@ -62,6 +62,7 @@ class GameScene extends Phaser.Scene {
 		//this.cards.create(550, 300, 'back');
 		var p = 0;
 		let i = 0;
+		let arrayjugadores = []
 		this.cards.children.iterate((card)=>{
 			card.card_id = cartasvector[i];
 			i++;
@@ -112,7 +113,13 @@ class GameScene extends Phaser.Scene {
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
-							p = this.score
+							for(var j = 0; j < 5 ; j++){
+								
+								arrayjugadores[j] = this.score
+
+							}
+
+							
 						}
 					}
 					this.firstClick = null;
