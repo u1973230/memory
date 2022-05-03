@@ -1,8 +1,9 @@
-var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#00ff00' });
-text.setText([
-	'Score: ' + this.data.get('score')
-]);
-
+console.log(this.score)
+this.scoreText = this.add.text(16, 16, 'PUNTOS: 0', { 
+    fontSize: '20px', 
+    fill: '#fff', 
+    fontFamily: 'verdana, arial, sans-serif' 
+  });
 
 
 

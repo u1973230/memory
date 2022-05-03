@@ -100,8 +100,15 @@ class GameScene extends Phaser.Scene {
 						this.correct++;
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
-							loadpage("../");
+							
 							this.data.set('score', this.score);
+							arrayjugadores = this.score;
+							var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#020202' });
+							text.setText([
+								'Score: ' + this.data.get('score')
+							]);
+							
+							//loadpage("../");
 							
 
 							
