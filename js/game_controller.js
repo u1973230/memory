@@ -11,13 +11,15 @@ var options = function(){
 		localStorage.setItem("config", JSON.stringify(options_data));
 	};
 	load();
-	function ocultar_cartes() {
-		for (var i = 0; i < game.items.length; i++){
+}
+	
+function ocultar_cartes() {
+	for (var i = 0; i < game.items.length; i++){
 			game.current_card[i].texture=back;
 			game.current_card[i].done=false;
 		}
-	}
 }
+	
 var gameObj = function (){
 	const back = "../resources/back.png";
 	const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",
@@ -38,6 +40,8 @@ var gameObj = function (){
 			bad_clicks: 0
 		},
 		created: function(){
+			this.num_cards=opcions_data.cards;
+			this.dificulty=opcions_data.dificulty;
 			if (l_partida){
 				this.username = l_partida.username;
 				this.current_card = l_partida.current_card;
@@ -56,7 +60,11 @@ var gameObj = function (){
 					this.current_card.push({done: false, texture: back});
 				}
 			}
-			sessionStorage.clear();
+			var milisegons=1500;
+			const tiempo = 0;
+			if (this.dificulty=="hard") milisegons=500;
+			else if (this.dificulty=="normal") milisegons=1000;
+			tiempo = setTimeout(ocultar_cartes, milisegons);
 		},
 		methods: {
 			clickCard: function(i){
