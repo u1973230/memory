@@ -35,14 +35,17 @@ class GameScene extends Phaser.Scene {
     
 		
 		for(var k = 0; k < cartas; k++){
-
 			this.add.image(125*k+50,300,cartasvector[k]);
 			this.cards.create(125*k+50,300,'back');
-			
-			
 		}
 		
-		
+		var mostrar_cartas = function(){
+			this.cards.children.each(function(card) {
+				card.enableBody(false, 0,0, true, true);
+			}, this);
+			
+
+		}
 	
 		
 		
@@ -60,7 +63,8 @@ class GameScene extends Phaser.Scene {
 		//this.cards.create(350, 300, 'back');
 		//this.cards.create(450, 300, 'back');
 		//this.cards.create(550, 300, 'back');
-		equivocado = false;
+		var equivocado = false;
+		
 		let i = 0;
 		let arrayjugadores = []
 		this.cards.children.iterate((card)=>{
@@ -75,33 +79,22 @@ class GameScene extends Phaser.Scene {
 						
 						equivocado = true
 						if(equivocado){
-							setTimeout(this.cards.children.each(function(card) {                                
-								card.disableBody(false,false);                         
-							}, this),1000)
+							 setTimeout(mostrar_cartas(),1000)
 							
 						}
-						
-						
-						
-						
-						
-						
-						
 						this.score -= 20;
-						this.firstClick.enableBody(false, 0, 0, true, true);
+						//this.firstClick.enableBody(false, 0, 0, true, true);
 						
 						card.enableBody(false, 0, 0, true, true);
 						
-						this.cards.children.each(function(card) {                                
-							card.disableBody(true,true);                         
-						}, this);
+						//this.cards.children.each(function(card) {                                
+							//card.disableBody(true,true);                         
+						//}, this);
 						
 						
 						this.cards.children.each(function(card) {
-                                
-                                card.enableBody(false, 0,0, true, true);
-                                
-                        }, this);
+                            card.enableBody(false, 0,0, true, true);
+                    	}, this);
 						
 						
 						
