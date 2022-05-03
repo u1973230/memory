@@ -40,20 +40,25 @@ var gameObj = function (){
 			bad_clicks: 0
 		},
 		created: function(){
-			this.num_cards=opcions_data.cards;
-			this.dificulty=opcions_data.dificulty;
+			
 			if (l_partida){
+				
+				
 				this.username = l_partida.username;
 				this.current_card = l_partida.current_card;
 				this.items = l_partida.items;
 				this.num_cards = l_partida.num_cards;
+				this.dificulty=opcions_data.dificulty;
 				this.bad_clicks = l_partida.bad_clicks;
 			}
 			else{
+				
+				
 				this.username = sessionStorage.getItem("username","unknown");
 				this.items = items.slice(); // Copiem l'array
 				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 				this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
+				this.dificulty = opcions_data.dificulty;
 				this.items = this.items.concat(this.items); // Dupliquem els elements
 				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 				for (var i = 0; i < this.items.length; i++){
