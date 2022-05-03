@@ -70,9 +70,9 @@ class GameScene extends Phaser.Scene {
 				if (this.firstClick){
 					
 					if (this.firstClick.card_id !== card.card_id){
-						for(var k = 0; k < cartas; k++){
+						/*for(var k = 0; k < cartas; k++){
 							this.add.image(125*k+50,300,cartasvector[k]);
-						}
+						}*/
 						
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
@@ -101,11 +101,8 @@ class GameScene extends Phaser.Scene {
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
-							for(var j = 0; j < 5 ; j++){
-								
-								arrayjugadores[j] = this.score
-
-							}
+							this.data.set('score', this.score);
+							
 
 							
 						}
@@ -117,6 +114,7 @@ class GameScene extends Phaser.Scene {
 				}
 			}, card);
 		});
+		 
 	}
 	
 	update (){	}
