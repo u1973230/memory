@@ -57,7 +57,12 @@ class GameScene extends Phaser.Scene {
 		//this.cards.create(350, 300, 'back');
 		//this.cards.create(450, 300, 'back');
 		//this.cards.create(550, 300, 'back');
-		
+		this.data.set('nombre', this.username);
+		arrayjugadores = this.score;
+		var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#020202' });
+		text.setText([
+			'Score: ' + this.data.get('score')
+		]);
 		
 		let i = 0;
 		let arrayjugadores = []
@@ -70,9 +75,9 @@ class GameScene extends Phaser.Scene {
 				if (this.firstClick){
 					
 					if (this.firstClick.card_id !== card.card_id){
-						/*for(var k = 0; k < cartas; k++){
+						for(var k = 0; k < cartas; k++){
 							this.add.image(125*k+50,300,cartasvector[k]);
-						}*/
+						}
 						
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
