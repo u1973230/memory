@@ -59,6 +59,7 @@ class GameScene extends Phaser.Scene {
 			this.add.image(125*k+50,300,cartasvector[k]);
 			this.cards.create(125*k+50,300,'back');
 		}
+
 		
 		let i = 0;
 		this.cards.children.iterate((card)=>{
@@ -104,15 +105,23 @@ class GameScene extends Phaser.Scene {
 					}
 					else{
 						this.correct++;
+						var contador_partidas = 0;
+						var arrayjugadores = [];
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
-							
+							contador_partidas++;
 							this.data.set('score', this.score);
+							
 							
 							var text = this.add.text(100, 100, '', { font: '64px Courier', fill: '#020202' });
 							text.setText([
 								'Score: ' + this.data.get('score')
 							]);
+							arrayjugadores = this.score;
+							localStorage.setItem('puntuacion', JSON.stringify(arrayjugadores));
+							var array = localStorage.getItem('myArray');
+							// Se parsea para poder ser usado en js con JSON.parse :)
+							array = JSON.parse(arrayjugadores);
 							
 							//loadpage("../");
 							
