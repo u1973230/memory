@@ -11,6 +11,7 @@ var options = function(){
 		localStorage.setItem("config", JSON.stringify(options_data));
 	};
 	load();
+	
 	var vue_instance = new Vue({
 		el: "#options_id",
 		data: {
